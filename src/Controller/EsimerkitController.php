@@ -1,12 +1,13 @@
 <?php
 namespace App\Controller;
 
-use Lihapiirakka;
+//use Lihapiirakka;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-
-class EsimerkitController {
+class EsimerkitController extends AbstractController{
     //Kontrollerit tulee tänne
     private $veroprosentti;
     private $vuosi;
@@ -45,15 +46,23 @@ class EsimerkitController {
         return new JsonResponse($nimet);
     }
     public function lihapiirakka(){
-        
-        $rahaaLompakossa = 10;
-        $lihapiirakanHinta = 2.5;
-        if($rahaaLompakossa - $lihapiirakanHinta >= -0.025) {
-            return new Response('Rahat ' . $rahaaLompakossa . ' €, riittävät lihapiirakkaan (' . $lihapiirakanHinta . ' euroa)');
-            $rahaaLompakossa -= $lihapiirakanHinta;
+        /*include Lihapiirakka.php;
+       
+        $lihis = new Lihapiirakka();
+        $lihis->setHinta(2.5);
+        $lihis->setRahaa(10);
+        if($lihis->getRahaa() >= $lihis->getHinta()) {
+            return new Response('Rahat ' . $lihis->getRahaa() . ' €, riittävät lihapiirakkaan (' . $lihis->getHinta() . ' euroa)');
+            $lihis->ostaLihis();
         } else {
             return new Response('Ei rahaa lihapiirakkaan! =)');
-        }
+        }*/
+    }
+    /** 
+    * @Route("esimerkit/esim7")
+    */
+    public function laskePakkasasteet(){
+
     }
 }
 
