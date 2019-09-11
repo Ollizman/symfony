@@ -62,8 +62,43 @@ class EsimerkitController extends AbstractController{
     * @Route("esimerkit/esim7")
     */
     public function laskePakkasasteet(){
+        // Muuttujat
+        $summa = 0;
+        $pakkaspaivat = 0;
+        $tekija = "Olli Manninen";
+        $mittausviikko = 35;
+        $ka1 = 0;
+        $ka2 = 0;
+        //Talletetaan viikon lämpötilat taulukkoon
+        $pakkasasteet = [
+        'ma' => 6,
+        'ti' => 3,
+        'ke' => -10,
+        'to' => -32,
+        'pe' => -5,
+        'la' => -6,
+        'su' => -3
+        ];
+        foreach ($pakkasasteet as $pakkasta) {
+            if($pakkasta < 0) {
+                $summa += $pakkasta;
+                $pakkaspaivat++;
+            }
+        }
+        //Lasketaan pakkaspäivien ka pakkasmäärä yhdellä desilä
+        $ka1 = number_format(($summa / $pakkaspaivat), 1);
+        //Lasketaan koko viikon ka lämpötila 1:llä desillä
+        $ka2 = number_format(array_sum($pakkasasteet) / count($pakkasasteet), 1);
 
-    }
+        //Kutsutaan näkymää ja lähetetään sille dataa sisältävät muuttujat
+        return $this->render('esimerkit/pakkasasteet.html.twig' , [
+            'pakkasasteet' => $pakkasasteet,
+            'ka1' => $ka1,
+            'ka2' => $ka2,
+            'viikko' => $mittausviikko,
+            'tekija' => $tekija
+        ]);
+        }
 }
 
 ?>
