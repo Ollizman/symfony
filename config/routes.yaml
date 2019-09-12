@@ -1,21 +1,21 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
-Palkka:
-    path: /esimerkit/esim1
-    controller: App\Controller\EsimerkitController::laskePalkka
-Karkausvuosi:
-    path: /esimerkit/esim2
-    controller: App\Controller\EsimerkitController::tarkistaKarkausvuosi
-Ph:
-    path: /esimerkit/esim3
-    controller: App\Controller\EsimerkitController::laskePh
-Noppa:
-    path: /esimerkit/esim4
-    controller: App\Controller\EsimerkitController::heitaNoppaa
-JSON:
-    path: /esimerkit/esim5
-    controller: App\Controller\EsimerkitController::naytaJSON
-Lihis:
-    path: /esimerkit/esim6
-    controller: App\Controller\EsimerkitController::lihapiirakka
+#Palkka:
+#    path: /esimerkit/esim1
+#    controller: App\Controller\EsimerkitController::laskePalkka
+#Karkausvuosi:
+#    path: /esimerkit/esim2
+#    controller: App\Controller\EsimerkitController::tarkistaKarkausvuosi
+#Ph:
+#    path: /esimerkit/esim3
+#    controller: App\Controller\EsimerkitController::laskePh
+#Noppa:
+#    path: /esimerkit/esim4
+#    controller: App\Controller\EsimerkitController::heitaNoppaa
+#JSON:
+#    path: /esimerkit/esim5
+#    controller: App\Controller\EsimerkitController::naytaJSON
+#Lihis:
+#    path: /esimerkit/esim6
+#    controller: App\Controller\EsimerkitController::lihapiirakka
