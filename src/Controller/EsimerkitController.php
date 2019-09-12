@@ -15,17 +15,18 @@ class EsimerkitController extends AbstractController{
     private $ph;
 
     /** 
-    * @Route("esimerkit/esim1")
+    * @Route("esimerkit/esim1/{slug}")
     */
-    public function laskePalkka(){
+    public function laskePalkka($slug){
         $this->veroprosentti = 25;
-        $netto = 4500  * (1.00 - (0.01 * $this->veroprosentti));
+        $netto = $slug * (1.00 - (0.01 * $this->veroprosentti));
 
     //Pyydetään Response-oliota näyttämään tulos
     //return new Response('<h4>Bruttopalkkasi on 4500e ja nettopalkkasi on <strong>'
     // . $netto . '</strong></h4>');
      return $this->render('esimerkit/palkka.html.twig' , [
-        'tulos' => $netto
+        'netto' => $netto,
+        'brutto' => $slug
        ]);
         }
     /** 
@@ -144,8 +145,32 @@ class EsimerkitController extends AbstractController{
     * @Route("esimerkit/uutiset/{slug}")
     */
     public function nayta($slug) {
-        return $this->render('esimerkit/naytaSlug.html.twig' , [
-            'otsikko' => $slug
+        $kommentit = [
+            'Muropaketin arvostelun mukaan Control on viiden tähden täysosuma!',
+            'Apple Arcade toimii iPhoneilla ja iPadeillä sekä Macilla ja Apple TV:llä!',
+            'PlayStation Blog on jälleen listannut viikon suurimmat PS4-julkaisut!'
+        ];
+
+        return $this->render('esimerkit/nayta.html.twig' , [
+            'otsikko' => $slug,
+            'kommentit' => $kommentit
+        ]);
+    }
+             /** 
+    * @Route("esimerkit/kuntopisteet/{a},{b},{c}")
+    */
+    public function kuntopisteet($a, $b, $c){
+        $henkilo = "Olli";
+        $suoritukset = [
+            'holkka' => $a,
+            'hiihto' => $b,
+            'kavely' => $c
+        ];
+        $kuntopisteet = $a * 4 + $b * 2 + $c;
+        return $this->render('esimerkit/kuntopisteet.html.twig' , [
+            'henkilo' => $henkilo,
+            'suoritukset' => $suoritukset,
+            'kuntopisteet' => $kuntopisteet
         ]);
     }
 }

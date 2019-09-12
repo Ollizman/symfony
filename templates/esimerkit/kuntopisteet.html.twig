@@ -1,0 +1,17 @@
+<h1> Henkilön {{ henkilo }} kuntopisteet: </h1>
+
+{{ henkilo }} on tehnyt seuraavia suorituksia:
+<ul>
+    {%for suoritus in suoritukset %} 
+    <li> {{ suoritus }} </li>
+{%endfor%}
+   
+</ul
+<h3>Henkilön {{ henkilo }} kuntopisteet kuntotaulukon mukaan ovat yhteensä:</h3>
+<p> {{ kuntopisteet }} </p>
+    <h2>Kuntopisteidesi perusteella </h2>
+{%if kuntopisteet > 100 %}
+    <p> Sinulla on hyvä kunto </p>
+{% else %}
+    <p> Sinulla on tyydyttävä kunto </p>
+{% endif %}

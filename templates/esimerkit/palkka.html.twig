@@ -1,1 +1,6 @@
-<h1> Bruttopalkan 4500e nettopalkka on {{ tulos }} </h1> 
+{% if brutto <= 0 %}
+        <p>Palkan oltava suurempi kuin 0</p>
+    {% else %}
+        <h1> Bruttopalkan {{ brutto }} nettopalkka on {{ netto }} </h1> 
+{% endif %}
+
