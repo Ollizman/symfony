@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %} 
+<div class="container form-signin text-center">
+    
+        <div class="card" style="width:250px">
+        <img class="card-img-top" src="../img/img_avatar1.png" alt="Card image" style="width:100%">
+        <div class="card-body">
+        <h4 class="card-title">{{ henkilo.etunimi }} {{ henkilo.sukunimi }}</h4>
+        <p class="card-text">{{ henkilo.email }}</p>
+        <a href="#" class="btn btn-primary">See Profile</a>
+        </div> </div>
+    <p class="mt-5 mb-3 text-muted">{{ henkilo.kirjauspvm |date('d-m-Y') }}</p>
+</div>
+
+{% endblock %}
